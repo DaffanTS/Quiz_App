@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Gaya Komunikasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="question.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>Gaya Komunikasi Anda</h1>
+            <p>Jawablah pertanyaan berikut untuk mengetahui pendekatan komunikasi Anda</p>
+        </div>
+        
+        <div class="nav-container">
+            <button class="btn" id="prev-btn" onclick="navigate(-1)" disabled>
+                <i class="fas fa-chevron-left"></i> Sebelumnya
+            </button>
+            
+            <div class="timer">
+                <i class="fas fa-clock"></i>
+                <span id="time">30:00:00</span>
+            </div>
+            
+            <button class="btn" id="next-btn" onclick="navigate(1)">
+                Selanjutnya <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="progress-text">
+                <span>Progress</span>
+                <span id="progress-percent">0%</span>
+            </div>
+        </div>
+        
+        <!-- Page 1 -->
+        <div class="page active" id="page-1">
+            <div class="question-container">
+                <div class="question-text">Ketika Anda menjelaskan sesuatu kepada orang lain, bagaimana pendekatan Anda?</div>
+                <div class="options-grid">
+                    <div class="option" onclick="selectOption(this, 1)">Menggunakan analogi dan peribandingan untuk memudahkan pemahaman.</div>
+                    <div class="option" onclick="selectOption(this, 1)">Menggunakan penjelasan dengan tingkat pemahaman lawan bicara.</div>
+                    <div class="option" onclick="selectOption(this, 1)">Memberikan penjelasan mendalam dengan contoh konkret.</div>
+                    <div class="option" onclick="selectOption(this, 1)">Fokus pada poin-poin utama tanpa detail berlebihan.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page 2 -->
+        <div class="page" id="page-2">
+            <div class="question-container">
+                <div class="question-text">Ketika Anda menjelaskan sesuatu kepada orang lain, bagaimana pendekatan Anda?</div>
+                <div class="options-grid">
+                    <div class="option" onclick="selectOption(this, 2)">Memulai dengan gambaran besar kemudian masuk ke detail</div>
+                    <div class="option" onclick="selectOption(this, 2)">Langsung memberikan contoh praktis yang relevan</div>
+                    <div class="option" onclick="selectOption(this, 2)">Menyusun penjelasan secara sistematis dan terstruktur</div>
+                    <div class="option" onclick="selectOption(this, 2)">Menyesuaikan penjelasan dengan minat lawan bicara</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page 3 -->
+        <div class="page" id="page-3">
+            <div class="question-container">
+                <div class="question-text">Bagaimana Anda biasanya menanggapi pertanyaan kompleks?</div>
+                <div class="options-grid">
+                    <div class="option" onclick="selectOption(this, 3)">Memecahnya menjadi bagian-bagian kecil yang lebih mudah dipahami</div>
+                    <div class="option" onclick="selectOption(this, 3)">Memberikan gambaran besar terlebih dahulu</div>
+                    <div class="option" onclick="selectOption(this, 3)">Mencari contoh serupa yang sudah familiar</div>
+                    <div class="option" onclick="selectOption(this, 3)">Menanyakan clarification untuk memastikan pemahaman</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page 4 -->
+        <div class="page" id="page-4">
+            <div class="question-container">
+                <div class="question-text">Apa yang paling penting dalam komunikasi menurut Anda?</div>
+                <div class="options-grid">
+                    <div class="option" onclick="selectOption(this, 4)">Kejelasan dan presisi informasi</div>
+                    <div class="option" onclick="selectOption(this, 4)">Kemampuan beradaptasi dengan audiens</div>
+                    <div class="option" onclick="selectOption(this, 4)">Keterlibatan emosional dan empati</div>
+                    <div class="option" onclick="selectOption(this, 4)">Efisiensi dan ketepatan waktu</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 5 -->
+        <div class="page" id="page-5">
+            <div class="question-container">
+                <div class="question-text">Apa yang paling penting dalam komunikasi menurut Anda?</div>
+                <div class="options-grid">
+                    <div class="option" onclick="selectOption(this, 5)">Kejelasan dan presisi informasi</div>
+                    <div class="option" onclick="selectOption(this, 5)">Kemampuan beradaptasi dengan audiens</div>
+                    <div class="option" onclick="selectOption(this, 5)">Keterlibatan emosional dan empati</div>
+                    <div class="option" onclick="selectOption(this, 5)">Efisiensi dan ketepatan waktu</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page 6 -->
+        <div class="page" id="page-6">
+            <div class="question-container">
+                <div class="question-text">Apa yang paling penting dalam komunikasi menurut Anda?</div>
+                <div class="options-grid">
+                    <div class="option" onclick="selectOption(this, 6)">Kejelasan dan presisi informasi</div>
+                    <div class="option" onclick="selectOption(this, 6)">Kemampuan beradaptasi dengan audiens</div>
+                    <div class="option" onclick="selectOption(this, 6)">Keterlibatan emosional dan empati</div>
+                    <div class="option" onclick="selectOption(this, 6)">Efisiensi dan ketepatan waktu</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </div>
+
+    <script src="question.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Formulir Data Diri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Formulir Data Diri</h1>
+        </div>
+        
+        <div class="form-container">
+            <form id="data-diri-form">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" class="form-input" placeholder="Masukkan nama lengkap Anda">
+                    <div class="error-message" id="nama-error">Nama harus diisi</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Alamat Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="contoh@email.com">
+                    <div class="error-message" id="email-error">Masukkan alamat email yang valid</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telepon">Nomor Telepon</label>
+                    <input type="tel" id="telepon" class="form-input" placeholder="08xxxxxxxxxx">
+                    <div class="error-message" id="telepon-error">Masukkan nomor telepon yang valid (10-13 digit)</div>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span>Lanjutkan</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <div class="success-message" id="success-message">
+                    <i class="fas fa-check-circle"></i> Data berhasil disimpan! Mengarahkan ke halaman berikutnya...
+                </div>
+            </form>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 Formulir Data Diri. Hak Cipta Dilindungi.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

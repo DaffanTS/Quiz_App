@@ -1,8 +1,9 @@
 // Quiz state
-        const totalPages = 6; // Total number of question pages
+        const totalPages = 5;
         let currentPage = 1;
         const userAnswers = {};
-        let timeLeft = 5400; // in seconds (90 minutes)
+        // Set time to 30 hours in seconds (30:00:00 format)
+        let timeLeft = 30 * 60 * 60; // 30 hours in seconds
         let timerInterval;
         
         // Initialize pagination
@@ -20,8 +21,6 @@
                 
                 paginationContainer.appendChild(pageNumber);
             }
-            
-            updateProgress();
         }
         
         // Start the countdown timer
@@ -30,7 +29,7 @@
                 if (timeLeft <= 0) {
                     clearInterval(timerInterval);
                     alert('Waktu telah habis! Kuis akan diserahkan.');
-                    // Here you can add code to auto-submit the quiz
+                    submitQuiz();
                     return;
                 }
                 
@@ -39,7 +38,7 @@
             }, 1000);
         }
         
-        // Update timer display
+        // Update timer display in HH:MM:SS format
         function updateTimerDisplay() {
             const hours = Math.floor(timeLeft / 3600);
             const minutes = Math.floor((timeLeft % 3600) / 60);
@@ -81,16 +80,6 @@
             // Update navigation buttons
             document.getElementById('prev-btn').disabled = currentPage === 1;
             document.getElementById('next-btn').disabled = currentPage === totalPages;
-            
-            // Update progress bar
-            updateProgress();
-        }
-        
-        // Update progress bar
-        function updateProgress() {
-            const progressPercentage = (currentPage / totalPages) * 100;
-            document.getElementById('progress').style.width = `${progressPercentage}%`;
-            document.getElementById('progress-percent').textContent = `${Math.round(progressPercentage)}%`;
         }
         
         // Select an option
@@ -105,6 +94,30 @@
             // Store the answer
             userAnswers[pageNumber] = optionElement.textContent;
             
+            // Auto-advance to next page if not the last page
+            if (pageNumber < totalPages) {
+                setTimeout(() => navigate(1), 500);
+            }
+        }
+        
+        // Submit the quiz
+        function submitQuiz() {
+            // Check if all questions are answered
+            const answeredQuestions = Object.keys(userAnswers).length;
+            if (answeredQuestions < totalPages) {
+                if (confirm(`Anda belum menjawab semua pertanyaan. ${totalPages - answeredQuestions} pertanyaan belum dijawab. Apakah Anda yakin ingin mengirim?`)) {
+                    completeSubmission();
+                }
+            } else {
+                completeSubmission();
+            }
+        }
+        
+        // Complete the quiz submission
+        function completeSubmission() {
+            clearInterval(timerInterval);
+            alert('Terima kasih! Jawaban Anda telah dikirim.\n\nAnda akan diarahkan ke halaman hasil.');
+            // Here you would typically redirect to results page or process the data
         }
         
         // Initialize the quiz

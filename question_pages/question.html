@@ -29,16 +29,6 @@
             </button>
         </div>
         
-        <div class="progress-container">
-            <div class="progress-bar">
-                <div class="progress" id="progress"></div>
-            </div>
-            <div class="progress-text">
-                <span>Progress</span>
-                <span id="progress-percent">0%</span>
-            </div>
-        </div>
-        
         <!-- Page 1 -->
         <div class="page active" id="page-1">
             <div class="question-container">
@@ -89,8 +79,8 @@
                     <div class="option" onclick="selectOption(this, 4)">Efisiensi dan ketepatan waktu</div>
                 </div>
             </div>
-        </div>
-
+        </div>    
+        
         <!-- Page 5 -->
         <div class="page" id="page-5">
             <div class="question-container">
@@ -102,26 +92,20 @@
                     <div class="option" onclick="selectOption(this, 5)">Efisiensi dan ketepatan waktu</div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Page 6 -->
-        <div class="page" id="page-6">
-            <div class="question-container">
-                <div class="question-text">Apa yang paling penting dalam komunikasi menurut Anda?</div>
-                <div class="options-grid">
-                    <div class="option" onclick="selectOption(this, 6)">Kejelasan dan presisi informasi</div>
-                    <div class="option" onclick="selectOption(this, 6)">Kemampuan beradaptasi dengan audiens</div>
-                    <div class="option" onclick="selectOption(this, 6)">Keterlibatan emosional dan empati</div>
-                    <div class="option" onclick="selectOption(this, 6)">Efisiensi dan ketepatan waktu</div>
-                </div>
+
+            <div class="submit-container">
+                <button class="btn submit-btn" onclick="submitQuiz()">
+                    <i class="fas fa-paper-plane"></i> Kirim Jawaban
+                </button>
             </div>
         </div>
         
         <div class="navigation">
-            <div class="pagination" id="pagination"></div>
+            <div class="pagination" id="pagination">
+                <!-- Pagination numbers will be generated here -->
+            </div>
         </div>
     </div>
-
     <script src="question.js"></script>
 </body>
 </html>
